@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CareerLink | Find work that fits</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a href="#/" class="brand"><span class="brand-mark">CL</span> CareerLink</a>
+      <nav class="nav" id="nav">
+        <a href="#/" data-nav="home">Jobs</a>
+        <a href="#/dashboard" data-nav="dashboard" class="hidden" id="nav-dashboard">Dashboard</a>
+        <a href="#/admin" data-nav="admin" class="hidden" id="nav-admin">Admin</a>
+      </nav>
+      <div class="auth-area" id="auth-area">
+        <a href="#/login" class="btn btn-ghost">Log in</a>
+        <a href="#/register" class="btn btn-primary">Sign up</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- Job board -->
+    <section id="view-home" class="view">
+      <div class="hero">
+        <h1>Find work that fits you</h1>
+        <p>Browse openings from Karachi, Lahore and remote teams across Pakistan.</p>
+      </div>
+      <div class="filters card">
+        <input id="search-q" type="search" placeholder="Search by title, company or keyword" aria-label="Search jobs" />
+        <input id="search-location" type="text" placeholder="Location" aria-label="Filter by location" />
+        <select id="search-type" aria-label="Filter by job type">
+          <option value="">All types</option>
+          <option>Full-time</option>
+          <option>Part-time</option>
+          <option>Remote</option>
+          <option>Contract</option>
+        </select>
+        <button class="btn btn-primary" id="search-btn">Search</button>
+        <button class="btn btn-ghost" id="search-clear">Clear</button>
+      </div>
+      <p id="job-count" class="muted"></p>
+      <div id="job-list" class="job-grid"></div>
+    </section>
+
+    <!-- Job detail + apply -->
+    <section id="view-job" class="view hidden">
+      <a href="#/" class="back-link">&larr; Back to jobs</a>
+      <div id="job-detail"></div>
+    </section>
+
+    <!-- Login -->
+    <section id="view-login" class="view hidden">
+      <div class="card form-card">
+        <h2>Log in</h2>
+        <p class="muted">Welcome back to CareerLink.</p>
+        <form id="login-form">
+          <label>Email <input type="email" name="email" required /></label>
+          <label>Password <input type="password" name="password" required /></label>
+          <p class="form-error hidden" id="login-error"></p>
+          <button class="btn btn-primary btn-block" type="submit">Log in</button>
+        </form>
+        <p class="muted">New here? <a href="#/register">Create an account</a></p>
+      </div>
+    </section>
+
+    <!-- Register -->
+    <section id="view-register" class="view hidden">
+      <div class="card form-card">
+        <h2>Create your account</h2>
+        <p class="muted">Join as a job seeker or an employer.</p>
+        <form id="register-form">
+          <label>Full name <input type="text" name="name" required /></label>
+          <label>Email <input type="email" name="email" required /></label>
+          <label>Password <input type="password" name="password" minlength="6" required /></label>
+          <div class="role-pick">
+            <label class="role-option"><input type="radio" name="role" value="seeker" checked /> <span><strong>Job seeker</strong><small>Browse jobs and apply</small></span></label>
+            <label class="role-option"><input type="radio" name="role" value="employer" /> <span><strong>Employer</strong><small>Post jobs and review applicants</small></span></label>
+          </div>
+          <p class="form-error hidden" id="register-error"></p>
+          <button class="btn btn-primary btn-block" type="submit">Sign up</button>
+        </form>
+        <p class="muted">Already have an account? <a href="#/login">Log in</a></p>
+      </div>
+    </section>
+
+    <!-- Seeker dashboard -->
+    <section id="view-seeker" class="view hidden">
+      <h2>My applications</h2>
+      <div id="seeker-apps"></div>
+    </section>
+
+    <!-- Employer dashboard -->
+    <section id="view-employer" class="view hidden">
+      <div class="dash-head">
+        <h2>My job postings</h2>
+        <button class="btn btn-primary" id="new-job-btn">Post a job</button>
+      </div>
+      <div id="job-form-wrap" class="hidden"></div>
+      <div id="employer-jobs"></div>
+    </section>
+
+    <!-- Admin dashboard -->
+    <section id="view-admin" class="view hidden">
+      <h2>Admin dashboard</h2>
+      <div id="admin-stats" class="stat-grid"></div>
+      <div class="admin-tables">
+        <div>
+          <h3>Recent jobs</h3>
+          <div id="admin-jobs" class="table-wrap"></div>
+        </div>
+        <div>
+          <h3>Recent applications</h3>
+          <div id="admin-apps" class="table-wrap"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p><strong>CareerLink</strong> &middot; a demo job portal built for the Auspify Technologies internship</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
