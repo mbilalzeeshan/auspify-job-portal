@@ -1,0 +1,1 @@
+{"dependencies":{"better-sqlite3":"^12.4.0","express":"^4.21.2"},"description":"CareerLink: a full-stack job portal with role-based auth, job postings, applications and an admin dashboard","license":"MIT","main":"server.js","name":"job-portal","scripts":{"start":"node server.js"},"version":"1.0.0"}
